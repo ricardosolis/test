@@ -10,6 +10,7 @@ class my_module(models.Model):
     name = fields.Char()
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
+    start_datetime = fields.Datetime('Start time', default=lambda self: fields.Datetime.now())
     description = fields.Text()
 
     @api.depends('value')
